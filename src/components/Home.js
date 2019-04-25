@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import People from "../components/People";
+import "../App.css";
+import People from "./People";
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div>
-        <h1>StarTours</h1>
-        <People />
-      </div>
-    );
-  }
-}
+const Home = () => (
+  <>
+    <div style={{ background: "#141414", color: "#f5f5f5" }}>
+      <h1>StarTours</h1>
+      <People />
+    </div>
+  </>
+);
+
+export default Home;
