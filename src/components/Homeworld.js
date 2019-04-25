@@ -8,6 +8,10 @@ const Homeworld = ({ url }) => {
     axios.get(url).then(res => setHomeworld({ ...res.data }));
   }, []);
 
-  return <p>Homeworld: {homeworld.name}</p>;
+  return (
+    <p style={{ fontFamily: "Helvetica", fontWeight: "500" }}>
+      Homeworld: {homeworld.name}
+    </p>
+  );
 };
 export default Homeworld;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Segment, Grid } from "semantic-ui-react";
 import Person from "./Person";
+import Planets from "./Planets";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -26,13 +27,15 @@ const People = () => {
                   style={{
                     background: "#141414",
                     color: "yellow",
-                    border: "2px solid yellow"
+                    border: "8px solid yellow"
                   }}
                 >
                   <Person
                     name={p.name}
                     species={p.species}
                     homeworld={p.homeworld}
+                    height={p.height}
+                    starships={p.starships}
                   />
                 </Segment>
               );
@@ -42,6 +45,7 @@ const People = () => {
         <Grid.Column>
           <Grid.Row>
             <h1>Planets of the Galactic Republic</h1>
+            <Planets />
           </Grid.Row>
         </Grid.Column>
       </Grid>
