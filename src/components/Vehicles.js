@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Segment, Button, Modal } from "semantic-ui-react";
+import { Button, Modal } from "semantic-ui-react";
 import axios from "axios";
 
 const Vehicles = () => {
@@ -100,7 +100,7 @@ export default () => {
                   <p>Class: {s.vehicle_class}</p>
                   <p>Cost in Credits: {s.cost_in_credits}</p>
                   <p>Crew: {s.crew}</p>
-                  <p>Length: {s.length} Hours</p>
+                  <p>Length: {s.length}</p>
                 </div>
               </Modal.Description>
             </Modal.Content>

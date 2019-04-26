@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Segment, Button, Modal } from "semantic-ui-react";
+import { Button, Modal } from "semantic-ui-react";
 import axios from "axios";
-import styled from "styled-components";
 
 const Starships = () => {
   const [starships, setStarships] = useState([]);
@@ -96,11 +95,11 @@ export default () => {
                 >
                   <h1 style={{ fontFamily: "STARWARS" }}>{s.name}</h1>
                   <p>Model: {s.model}</p>
-                  <p>Class: {s.class}</p>
+                  <p>Class: {s.starship_class}</p>
                   <p>Cost in Credits: {s.cost_in_credits}</p>
                   <p>Crew: {s.crew}</p>
-                  <p>Length: {s.length} Hours</p>
-                  <p>HyperDrive Rating: {s.hyperdrive_rating} Days</p>
+                  <p>Length: {s.length}</p>
+                  <p>HyperDrive Rating: {s.hyperdrive_rating}</p>
                 </div>
               </Modal.Description>
             </Modal.Content>

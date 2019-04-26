@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Segment, Button, Modal } from "semantic-ui-react";
+import { Button, Modal } from "semantic-ui-react";
 import axios from "axios";
 
 const Planets = () => {

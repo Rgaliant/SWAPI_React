@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Segment, Grid, Button, Modal } from "semantic-ui-react";
+import { Grid, Button, Modal } from "semantic-ui-react";
 import Person from "./Person";
 import Planets from "./Planets";
 import Starships from "./Starships";
 import Vehicles from "./Vehicles";
-import styled from "styled-components";
 
 const People = () => {
   const [people, setPeople] = useState([]);
