@@ -3,31 +3,31 @@ import { Segment, Button, Modal } from "semantic-ui-react";
 import axios from "axios";
 import styled from "styled-components";
 
-const Starships = () => {
-  const [starships, setStarships] = useState([]);
+const Vehicles = () => {
+  const [vehicles, setVehicles] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    axios.get("https://swapi.co/api/starships").then(res => {
-      setStarships(res.data.results);
+    axios.get("https://swapi.co/api/vehicles").then(res => {
+      setVehicles(res.data.results);
     });
   }, []);
 
   const nextPlPage = () => {
     setPage(page + 1);
-    axios.get(`https://swapi.co/api/starships?page=${page}`).then(res => {
-      setStarships(res.data.results);
+    axios.get(`https://swapi.co/api/vehicles?page=${page}`).then(res => {
+      setVehicles(res.data.results);
     });
   };
 
   return {
-    starships,
+    vehicles,
     nextPlPage
   };
 };
 
 export default () => {
-  const { starships, nextPlPage } = Starships();
+  const { vehicles, nextPlPage } = Vehicles();
   return (
     <div>
       <Button
@@ -40,7 +40,7 @@ export default () => {
       >
         More Ships
       </Button>
-      {starships.map(s => {
+      {vehicles.map(s => {
         return (
           <Segment
             style={{ background: "#141414", border: "8px solid yellow" }}
@@ -59,11 +59,10 @@ export default () => {
                   <div>
                     <h1 style={{ fontFamily: "STARWARS" }}>{s.name}</h1>
                     <p>Model: {s.model}</p>
-                    <p>Class: {s.class}</p>
+                    <p>Class: {s.vehicle_class}</p>
                     <p>Cost in Credits: {s.cost_in_credits}</p>
                     <p>Crew: {s.crew}</p>
                     <p>Length: {s.length} Hours</p>
-                    <p>HyperDrive Rating: {s.hyperdrive_rating} Days</p>
                   </div>
                 </Modal.Description>
               </Modal.Content>
