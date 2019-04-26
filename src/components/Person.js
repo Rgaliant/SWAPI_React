@@ -14,7 +14,13 @@ const Person = ({
   birth_year
 }) => {
   return (
-    <div>
+    <div
+      style={{
+        background: "#141414",
+        padding: "80px",
+        borderRadius: "4%"
+      }}
+    >
       <h1 style={{ fontFamily: "STARWARS" }}>{name}</h1>
       <div>
         <Grid>

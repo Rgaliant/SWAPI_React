@@ -28,20 +28,27 @@ const People = () => {
     });
   };
 
+  const resetPage = () => {
+    setPage(1);
+    axios.get(`https://swapi.co/api/people?page=${page}`).then(res => {
+      setPeople(res.data.results);
+    });
+  };
+
   return {
     people,
     loading,
-    nextPage
+    nextPage,
+    resetPage
   };
 };
 
 export default () => {
-  const { people, nextPage } = People();
+  const { people, nextPage, resetPage } = People();
   return (
     <div>
       <h1
         style={{
-          color: "yellow",
           fontFamily: "STARWARS",
           fontSize: "7em",
           textAlign: "center"
@@ -52,81 +59,90 @@ export default () => {
       <Grid stackable columns={4}>
         <Grid.Column>
           <Grid.Row>
-            <h1 style={{ color: "yellow", fontFamily: "STARWARS" }}>
-              Galactic Citizens
-            </h1>
+            <h1 style={{ fontFamily: "STARWARS" }}>Galactic Citizens</h1>
             <Button
               onClick={nextPage}
               style={{
                 fontFamily: "STARWARS",
                 color: "black",
-                background: "yellow"
+                background: "white"
               }}
             >
               More Citizens
             </Button>
+            <Button
+              onClick={resetPage}
+              style={{
+                fontFamily: "STARWARS",
+                color: "white",
+                background: "black"
+              }}
+            >
+              Reset
+            </Button>
             {people.map(p => {
               return (
-                <Segment
-                  style={{
-                    background: "#141414",
-                    color: "yellow",
-                    border: "8px solid yellow"
-                  }}
-                >
-                  <Modal
-                    trigger={
-                      <Button color="black" style={{ color: "yellow" }}>
+                <Modal
+                  trigger={
+                    <div>
+                      <br />
+                      <Button
+                        style={{
+                          fontFamily: "STARWARS",
+                          height: "90%",
+                          width: "100%",
+                          padding: "1em",
+                          background: "#fff",
+                          color: "#141414",
+                          fontSize: "2em"
+                        }}
+                      >
                         {p.name}
                       </Button>
-                    }
-                    size="small"
-                    dimmer="inverted"
-                  >
-                    <Modal.Content>
-                      <Modal.Description>
-                        <p>
-                          <Person
-                            name={p.name}
-                            species={p.species}
-                            homeworld={p.homeworld}
-                            birth_year={p.birth_year}
-                            height={p.height}
-                            starships={p.starships}
-                            hair_color={p.hair_color}
-                            eye_color={p.eye_color}
-                            mass={p.mass}
-                          />
-                        </p>
-                      </Modal.Description>
-                    </Modal.Content>
-                  </Modal>
-                </Segment>
+                      <br />
+                      <br />
+                    </div>
+                  }
+                  size="small"
+                  basic
+                >
+                  <Modal.Content>
+                    <Modal.Description>
+                      <p>
+                        <Person
+                          name={p.name}
+                          species={p.species}
+                          homeworld={p.homeworld}
+                          birth_year={p.birth_year}
+                          height={p.height}
+                          starships={p.starships}
+                          hair_color={p.hair_color}
+                          eye_color={p.eye_color}
+                          mass={p.mass}
+                        />
+                      </p>
+                    </Modal.Description>
+                  </Modal.Content>
+                </Modal>
               );
             })}
           </Grid.Row>
         </Grid.Column>
         <Grid.Column>
           <Grid.Row>
-            <h1 style={{ color: "yellow", fontFamily: "STARWARS" }}>
-              Galactic Planets
-            </h1>
+            <h1 style={{ fontFamily: "STARWARS" }}>Galactic Planets</h1>
             <Planets />
           </Grid.Row>
         </Grid.Column>
         <Grid.Column>
           <Grid.Row>
-            <h1 style={{ color: "yellow", fontFamily: "STARWARS" }}>
-              Galactic Starships
-            </h1>
+            <h1 style={{ fontFamily: "STARWARS" }}>Galactic Starships</h1>
             <Starships />
           </Grid.Row>
         </Grid.Column>
         <Grid.Column>
           <Grid.Row>
-            <h1 style={{ color: "yellow", fontFamily: "STARWARS" }}>
-              Galactic Vehicles
-            </h1>
+            <h1 style={{ fontFamily: "STARWARS" }}>Galactic Vehicles</h1>
             <Vehicles />
           </Grid.Row>
         </Grid.Column>

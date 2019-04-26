@@ -1,10 +1,14 @@
 import React from "react";
 import "../App.css";
 import People from "./People";
+import DarkModeToggle from "../DarkModeToggle";
 
 const Home = () => (
   <>
-    <div style={{ background: "#141414", color: "#f5f5f5" }}>
+    <div>
+      <DarkModeToggle />
+    </div>
+    <div>
       <People />
     </div>
   </>
