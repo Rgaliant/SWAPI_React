@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Segment, Grid, Button, Modal, Header } from "semantic-ui-react";
+import { Segment, Grid, Button, Modal } from "semantic-ui-react";
 import Person from "./Person";
 import Planets from "./Planets";
 import Starships from "./Starships";
@@ -14,6 +14,7 @@ const People = () => {
 
   useEffect(() => {
     setLoading(true);
+    setPage(2);
     axios.get(`https://swapi.co/api/people`).then(res => {
       setPeople(res.data.results);
       setLoading(false);
@@ -35,7 +36,7 @@ const People = () => {
 };
 
 export default () => {
-  const { people, nextPage, loading } = People();
+  const { people, nextPage } = People();
   return (
     <div>
       <h1
@@ -73,7 +74,7 @@ export default () => {
                     border: "8px solid yellow"
                   }}
                 >
-                  <PersonModal
+                  <Modal
                     trigger={
                       <Button color="black" style={{ color: "yellow" }}>
                         {p.name}
@@ -99,7 +100,7 @@ export default () => {
                         </p>
                       </Modal.Description>
                     </Modal.Content>
-                  </PersonModal>
+                  </Modal>
                 </Segment>
               );
             })}
@@ -133,8 +134,3 @@ export default () => {
     </div>
   );
 };
-
-const PersonModal = styled(Modal)`
-  color: black;
-  background: black !important;
-`;

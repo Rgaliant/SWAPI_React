@@ -1,14 +1,12 @@
 import React from "react";
 import Species from "./Species";
 import Homeworld from "./Homeworld";
-import Starships from "./Starships";
 import { Grid } from "semantic-ui-react";
 
 const Person = ({
   name,
   species,
   homeworld,
-  starships,
   height,
   hair_color,
   eye_color,

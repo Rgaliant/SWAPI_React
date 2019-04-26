@@ -8,6 +8,7 @@ const Starships = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    setPage(2);
     axios.get("https://swapi.co/api/starships").then(res => {
       setStarships(res.data.results);
     });
@@ -45,7 +46,7 @@ export default () => {
           <Segment
             style={{ background: "#141414", border: "8px solid yellow" }}
           >
-            <PersonModal
+            <Modal
               trigger={
                 <Button color="black" style={{ color: "yellow" }}>
                   {s.name}
@@ -67,15 +68,10 @@ export default () => {
                   </div>
                 </Modal.Description>
               </Modal.Content>
-            </PersonModal>
+            </Modal>
           </Segment>
         );
       })}
     </div>
   );
 };
-
-const PersonModal = styled(Modal)`
-  color: black;
-  background: black !important;
-`;

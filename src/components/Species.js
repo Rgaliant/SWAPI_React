@@ -6,7 +6,7 @@ const Species = ({ url }) => {
 
   useEffect(() => {
     axios.get(url).then(res => setSpecies({ ...res.data }));
-  }, []);
+  }, [url]);
 
   return <p>Species: {species.name}</p>;
 };

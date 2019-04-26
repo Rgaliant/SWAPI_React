@@ -6,7 +6,7 @@ const Homeworld = ({ url }) => {
 
   useEffect(() => {
     axios.get(url).then(res => setHomeworld({ ...res.data }));
-  }, []);
+  }, [url]);
 
   return (
     <p style={{ fontFamily: "Helvetica", fontWeight: "500" }}>

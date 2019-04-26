@@ -8,6 +8,7 @@ const Planets = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    setPage(2);
     axios.get("https://swapi.co/api/planets").then(res => {
       setPlanets(res.data.results);
     });
@@ -44,8 +45,9 @@ export default () => {
         return (
           <Segment
             style={{ background: "#141414", border: "8px solid yellow" }}
+            key={planet.id}
           >
-            <PersonModal
+            <Modal
               trigger={
                 <Button color="black" style={{ color: "yellow" }}>
                   {planet.name}
@@ -67,15 +69,10 @@ export default () => {
                   </div>
                 </Modal.Description>
               </Modal.Content>
-            </PersonModal>
+            </Modal>
           </Segment>
         );
       })}
     </div>
   );
 };
-
-const PersonModal = styled(Modal)`
-  color: black;
-  background: black !important;
-`;
