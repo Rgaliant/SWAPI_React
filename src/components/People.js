@@ -42,13 +42,13 @@ export default () => {
         style={{
           color: "yellow",
           fontFamily: "STARWARS",
-          fontSize: "150px",
+          fontSize: "7em",
           textAlign: "center"
         }}
       >
         STAR WARS
       </h1>
-      <Grid columns={4}>
+      <Grid stackable columns={4}>
         <Grid.Column>
           <Grid.Row>
             <h1 style={{ color: "yellow", fontFamily: "STARWARS" }}>
@@ -108,7 +108,7 @@ export default () => {
         <Grid.Column>
           <Grid.Row>
             <h1 style={{ color: "yellow", fontFamily: "STARWARS" }}>
-              Planets of the Galactic Republic
+              Galactic Planets
             </h1>
             <Planets />
           </Grid.Row>
